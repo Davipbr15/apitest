@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
 
+
+
 const bodyParser = require('body-parser');
 
 const path = require('path');
@@ -10,6 +12,7 @@ const bcrypt = require("bcryptjs");
 const mongoose = require("mongoose");
 
 const jwt = require("jsonwebtoken");
+const { errorMonitor } = require("events");
 
 const JWT_SECRET = "sorv1veteque2rol5ei9tepikachu7portaab2acax1igeladei6rabrastemp";
 
@@ -23,11 +26,11 @@ mongoose.connect(mongoUrl,{
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(()=>{
-    console.log("Conectado");
+    console.log("   |        Conectado         |");
 }).catch((e) => console.log(e));
 
 app.listen(3002, ()=>{
-    console.log("Server local iniciado.");
+    console.log("   |  Server Local Iniciado.  |");
 })
 
 app.get('/home',async(req,res)=>{
@@ -62,10 +65,45 @@ require("./loginDetail");
 const Login = mongoose.model("LoginUser");
 const Associate = mongoose.model("AssociateInfo");
 
+app.post("/searchAssociate", async(req,res)=>{
+
+    const { nomeCompletob } = req.body;
+
+    const associate = await Associate.find(
+
+        { dadosPessoais: { nomeCompleto: nomeCompletob} }
+
+    );
+
+    if(!nomeCompletob){
+
+        return res.json({status: 'error', error: 'Escreva Algo Amigo.'})
+
+    } else{
+
+    if(!associate){
+        return res.json({ status: 'error', error: 'Usuario inexistente ou inválido' })
+    } else {
+
+
+        res.json(associate);
+        console.log(associate);
+
+    }
+
+    }
+
+
+
+
+})
+
 app.post("/loginUser", async(req,res)=>{
 
-    const { username, password } = req.body
-	const user = await Login.findOne({ username }).lean()
+    
+
+    const { username, password } = req.body;
+	const user = await Login.findOne({ username }).lean();
 
 	if (!user) {
 		return res.json({ status: 'error', error: 'Senha ou Usuário Inválido' })
