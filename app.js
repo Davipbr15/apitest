@@ -137,13 +137,13 @@ app.post('/changePassword', async (req, res) => {
 	const { token, newPassword: plainTextPassword } = req.body
 
 	if (!plainTextPassword || typeof plainTextPassword !== 'string') {
-		return res.json({ status: 'error', error: 'Senha Inválida' })
+		return res.json({ status: 'Error', error: 'Senha Inválida' })
 	}
 
 	if (plainTextPassword.length < 5) {
 		return res.json({
 			status: 'error',
-			error: 'Sua senha é muito cura deve ter mais de 6 caracteres.'
+			error: 'Sua senha é muito curta deve ter mais de 6 caracteres.'
 		})
 	}
 
