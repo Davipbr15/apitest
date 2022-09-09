@@ -71,7 +71,7 @@ app.post("/searchAssociate", async(req,res)=>{
 
     const associate = await Associate.find(
 
-        { dadosPessoais: { nomeCompleto: nomeCompletob} }
+        //{ dadosPessoais: { nomeCompleto: nomeCompletob} }
 
     );
 
