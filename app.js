@@ -70,25 +70,20 @@ app.post("/searchAssociate", async(req,res)=>{
     const { nomeCompletob } = req.body;
 
     const associate = await Associate.find(
-
         //{ dadosPessoais: { nomeCompleto: nomeCompletob} }
-
     );
 
     if(!nomeCompletob){
 
-        return res.json({status: 'error', error: 'Escreva Algo Amigo.'})
-
+        return res.json({status: 'error', error: 'Escreva Algo Amigo.'});
+                                                                                                                                                                                  
     } else{
 
     if(!associate){
         return res.json({ status: 'error', error: 'Usuario inexistente ou inválido' })
     } else {
-
-
         res.json(associate);
         console.log(associate);
-
     }
 
     }
@@ -99,9 +94,7 @@ app.post("/searchAssociate", async(req,res)=>{
 })
 
 app.post("/loginUser", async(req,res)=>{
-
     
-
     const { username, password } = req.body;
 	const user = await Login.findOne({ username }).lean();
 
@@ -123,7 +116,7 @@ app.post("/loginUser", async(req,res)=>{
 		return res.json({ status: 'Logado com Sucesso!', data: token })
 	}
 
-	res.json({ status: 'Error', error: 'Senha ou Usuário Inválido' })
+    res.json({ status: 'Error', error: 'Senha ou Usuário Inválido' })
 
 
 })
@@ -155,7 +148,9 @@ app.post("/registerUser", async(req,res)=>{
 		const response = await Login.create({
 			username,
 			password
-		})
+		
+        
+        })
 		console.log('Usuário criado com sucesso: ', response)
 	} catch (error) {
 		if (error.code === 11000) {
@@ -173,17 +168,18 @@ app.post("/registerUser", async(req,res)=>{
 
 app.post('/changePassword', async (req, res) => {
 	const { token, newPassword: plainTextPassword } = req.body
-
 	if (!plainTextPassword || typeof plainTextPassword !== 'string') {
 		return res.json({ status: 'Error', error: 'Senha Inválida' })
 	}
-
 	if (plainTextPassword.length < 5) {
 		return res.json({
 			status: 'error',
-			error: 'Sua senha é muito curta deve ter mais de 6 caracteres.'
-		})
-	}
+			error: 'Sua senha é muito curta deve ter mais de 6 caracteres.'                
+	})
+}
+
+
+
 
 	try {
 		const user = jwt.verify(token, JWT_SECRET)
@@ -191,7 +187,7 @@ app.post('/changePassword', async (req, res) => {
 		const _id = user.id
 
 		const password = await bcrypt.hash(plainTextPassword, 10)
-
+        
 		await User.updateOne(
 			{ _id },
 			{
