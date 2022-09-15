@@ -1,8 +1,5 @@
 const express = require("express");
 const app = express();
-
-
-
 const bodyParser = require('body-parser');
 
 const path = require('path');
@@ -35,7 +32,7 @@ app.listen(3002, ()=>{
 
 app.get('/home',async(req,res)=>{
 
-    res.send("Hello World");
+    res.sendFile(path.resolve(__dirname, 'index.html'))
 
 })
 
@@ -112,7 +109,7 @@ app.post("/loginUser", async(req,res)=>{
 			},
 			JWT_SECRET
 		)
-
+        console.log(username + " logado com sucesso!");
 		return res.json({ status: 'Logado com Sucesso!', data: token })
 	}
 
@@ -152,7 +149,7 @@ app.post("/registerUser", async(req,res)=>{
         
         })
 		console.log('Usuário criado com sucesso: ', response)
-	} catch (error) {
+	} catch(error){
 		if (error.code === 11000) {
 			// duplicate key
 			return res.json({ status: 'Erro', error: 'Username already in use' })
@@ -179,8 +176,6 @@ app.post('/changePassword', async (req, res) => {
 }
 
 
-
-
 	try {
 		const user = jwt.verify(token, JWT_SECRET)
 
@@ -204,93 +199,21 @@ app.post('/changePassword', async (req, res) => {
 app.post("/registerAssociate", async(req,res)=>{
     /*
 {
-"dadosPessoais":{
-        "nomeCompleto":"nomeCompletob",
-        "estadoCivil":"estadoCivilb",
-        "nacionalidade":"nacionalidadeb",
-        "naturalidade":"naturalidadeb",
-        "dataDeNascimento":"dataDeNascimentob",
-        "cpf":"cpfb",
-        "profissao":"profissaob",
-        "documentoIdentificacao":"documentoIdentificacaob",
-        "numeroDocumento":"numeroDocumentob",
-        "orgaoExpeditor":"orgaoExpeditorb",
-        "enderecoPessoal":"enderecoPessoalb",
-        "numeroEnderecoPessoal":"numeroEnderecoPessoalb",
-        "complementoPessoal":"complementoPessoalb",
-        "bairroPessoal":"bairroPessoalb",
-        "cep":"cepb",
-        "cidadeEstadoPessoal":"cidadeEstadoPessoalb",
-        "emailPessoal":"emailPessoalb",
-        "telefoneFixoPessoal":"telefoneFixoPessoalb",
-        "celularPessoal":"celularPessoalb"
+"dadosPessoais":{"nomeCompleto":"nomeCompletob","estadoCivil":"estadoCivilb","nacionalidade":"nacionalidadeb","naturalidade":"naturalidadeb","dataDeNascimento":"dataDeNascimentob","cpf":"cpfb","profissao":"profissaob","documentoIdentificacao":"documentoIdentificacaob","numeroDocumento":"numeroDocumentob","orgaoExpeditor":"orgaoExpeditorb","enderecoPessoal":"enderecoPessoalb","numeroEnderecoPessoal":"numeroEnderecoPessoalb","complementoPessoal":"complementoPessoalb","bairroPessoal":"bairroPessoalb","cep":"cepb","cidadeEstadoPessoal":"cidadeEstadoPessoalb","emailPessoal":"emailPessoalb","telefoneFixoPessoal":"telefoneFixoPessoalb","celularPessoal":"celularPessoalb"
 }
 }*/
- /*dadosPessoais:{
-        nomeCompleto:nomeCompletob,
-        estadoCivil:estadoCivilb,
-        nacionalidade:nacionalidadeb,
-        naturalidade:naturalidadeb,
-        dataDeNascimento:dataDeNascimentob,
-        cpf:cpfb,
-        profissao:profissaob,
-        documentoIdentificacao:documentoIdentificacaob,
-        numeroDocumento:numeroDocumentob,
-        orgaoExpeditor:orgaoExpeditorb,
-        enderecoPessoal:enderecoPessoalb,
-        numeroEnderecoPessoal:numeroEnderecoPessoalb,
-        complementoPessoal:complementoPessoalb,
-        bairroPessoal:bairroPessoalb,
-        cep:cepb,
-        cidadeEstadoPessoal:cidadeEstadoPessoalb,
-        emailPessoal:emailPessoalb,
-        telefoneFixoPessoal:telefoneFixoPessoalb,
-        celularPessoal:celularPessoalb }
+ /*dadosPessoais:{ nomeCompleto:nomeCompletob, estadoCivil:estadoCivilb, nacionalidade:nacionalidadeb, naturalidade:naturalidadeb, dataDeNascimento:dataDeNascimentob, cpf:cpfb, profissao:profissaob, documentoIdentificacao:documentoIdentificacaob, numeroDocumento:numeroDocumentob, orgaoExpeditor:orgaoExpeditorb, enderecoPessoal:enderecoPessoalb, numeroEnderecoPessoal:numeroEnderecoPessoalb, complementoPessoal:complementoPessoalb, bairroPessoal:bairroPessoalb, cep:cepb, cidadeEstadoPessoal:cidadeEstadoPessoalb, emailPessoal:emailPessoalb, telefoneFixoPessoal:telefoneFixoPessoalb, celularPessoal:celularPessoalb }
     });*/
-    const {nomeCompletob,
-        estadoCivilb,
-        nacionalidadeb,
-        naturalidadeb,
-        dataDeNascimentob,
-        cpfb,
-        profissaob,
-        documentoIdentificacaob,
-        numeroDocumentob,
-        orgaoExpeditorb,
-        enderecoPessoalb,
-        numeroEnderecoPessoalb,
-        complementoPessoalb,
-        bairroPessoalb,
-        cepb,
-        cidadeEstadoPessoalb,
-        emailPessoalb,
-        telefoneFixoPessoalb,
-        celularPessoalb,
-        razaoSocialb,
-        nomeFantasiab,
-        cnpjb,
-        numeroInscricaob,
-        enderecoSedeb,
-        numeroSedeb,
-        complementoSedeb,
-        bairroSedeb,
-        cepSedeb,
-        cidadeEstadoSedeb,
-        emailProfissionalb,
-        dataDeAberturab,
-        quantidadePessoasOcupadasb,
-        ramoDaAtividadeb,} = req.body;
+    const {nomeCompletob,estadoCivilb,nacionalidadeb,naturalidadeb,dataDeNascimentob,cpfb,profissaob,documentoIdentificacaob,numeroDocumentob,orgaoExpeditorb,enderecoPessoalb,numeroEnderecoPessoalb,complementoPessoalb,bairroPessoalb,cepb,cidadeEstadoPessoalb,emailPessoalb,telefoneFixoPessoalb,celularPessoalb,razaoSocialb,nomeFantasiab,cnpjb,numeroInscricaob,enderecoSedeb,numeroSedeb,complementoSedeb,bairroSedeb,cepSedeb,cidadeEstadoSedeb,emailProfissionalb,dataDeAberturab,quantidadePessoasOcupadasb,ramoDaAtividadeb,} = req.body;
     try{
         await Associate.create({
-
             dadosPessoais:{
             nomeCompleto:nomeCompletob,
             estadoCivil:estadoCivilb,
             nacionalidade:nacionalidadeb,
             naturalidade:naturalidadeb,
             dataDeNascimento:dataDeNascimentob,
-            cpf:cpfb,
-            profissao:profissaob,
+            cpf:cpfb,profissao:profissaob,
             documentoIdentificacao:documentoIdentificacaob,
             numeroDocumento:numeroDocumentob,
             orgaoExpeditor:orgaoExpeditorb,
@@ -306,20 +229,20 @@ app.post("/registerAssociate", async(req,res)=>{
             }
             ,
             dadosProfissionais:{
-                razaoSocial:razaoSocialb,
-                nomeFantasia:nomeFantasiab,
-                cnpj:cnpjb,
-                numeroInscricao:numeroInscricaob,
-                enderecoSede:enderecoSedeb,
-                numeroSede:numeroSedeb,
-                complementoSede:complementoSedeb,
-                bairroSede:bairroSedeb,
-                cepSede:cepSedeb,
-                cidadeEstadoSede:cidadeEstadoSedeb,
-                emailProfissional:emailProfissionalb,
-                dataDeAbertura:dataDeAberturab,  
-                quantidadePessoasOcupadas:quantidadePessoasOcupadasb,
-                ramoDaAtividade:ramoDaAtividadeb
+            razaoSocial:razaoSocialb,
+            nomeFantasia:nomeFantasiab,
+            cnpj:cnpjb,
+            numeroInscricao:numeroInscricaob,
+            enderecoSede:enderecoSedeb,
+            numeroSede:numeroSedeb,
+            complementoSede:complementoSedeb,
+            bairroSede:bairroSedeb,
+            cepSede:cepSedeb,
+            cidadeEstadoSede:cidadeEstadoSedeb,
+            emailProfissional:emailProfissionalb,
+            dataDeAbertura:dataDeAberturab,
+            quantidadePessoasOcupadas:quantidadePessoasOcupadasb,
+            ramoDaAtividade:ramoDaAtividadeb
             }
 
         });
