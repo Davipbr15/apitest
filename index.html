@@ -1,20 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=, initial-scale=1.0">
-    <title>Perfeito</title>
+    <title>Teste Axios</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
+<div class="bg-blue-300 min-h-screen">
 
     <h1 class="text-4xl font-bold text-center p-5">Teste AXIOS</h1>
     
-    <form class="block p-6 rounded-lg justify-self-center mx-auto shadow-lg bg-white max-w-md">
-    <div class="grid grid-cols-2 gap-4">
-        <div class=" mb-3 xl:w-96">
-            <!--text MODE -------------------> 
+    <form class="block p-5 rounded-lg justify-self-center mx-auto shadow-2xl bg-white max-w-2xl">
+      
+      <div class="mb-5">
+        <h1 class="text-xl text-center font-bold">Dados Pessoais</h1>
+      </div>
+
+      <div class="grid grid-cols-3 gap-4">
+
+
+        <div class="col-span-3">
           <label for="nomeCompleto" class="form-label inline-block mb-2 text-gray-700">Nome completo</label>
           <input type="text"
             class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
@@ -23,34 +30,343 @@
           />
         </div>
 
-        <!--Select MODE -------------------> 
         <div class="">
-            <label for="estado" class="form-label inline-block mb-2 text-gray-700">Estado Civil</label>
+          <label for="estado" class="form-label inline-block mb-2 text-gray-700">Estado Civil</label>
             <select id="estado" name="estado" size="1" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
-                <option value="disponivel">Solteiro(a)</option>
-                <option value="casado">Casado(a)</option>
-                <option value="viuvo">Viúvo(a)</option>
-                <option value="separado">Separado(a)</option>
-                <option value="divorciado">Divorciado(a)</option>
-              </select>
-          </div>
+              <option value="disponivel">Solteiro(a)</option>
+              <option value="casado">Casado(a)</option>
+              <option value="viuvo">Viúvo(a)</option>
+              <option value="separado">Separado(a)</option>
+              <option value="divorciado">Divorciado(a)</option>
+            </select>
+        </div>
 
-            <div class="mb-3 xl:w-96">
-                <!--text MODE -------------------> 
-              <label for="nomeCompleto" class="form-label inline-block mb-2 text-gray-700">Nome completo</label>
-              <input type="text"
-                class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                id="nomeCompleto"
-                placeholder="Nome Completo"
-              />
-            </div>
+        <div class="col-span-1">
+          <label for="nacionalidade" class="form-label inline-block mb-2 text-gray-700">
+            Nacionalidade</label>
+            <input type="text"
+               class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+               id="nacionalidade"
+               placeholder="Nacionalidade"
+             />
+        </div>
+      <div class="col-span-1">
+        <label for="naturalidade" class="form-label inline-block mb-2 text-gray-700">
+          Naturalidade</label>
+          <input type="text"
+             class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+             id="naturalidade"
+             placeholder="Naturalidade"
+           />
+      </div> 
 
-          
-        
+      <div class="col-span-2">
+        <label for="cpf" class="form-label inline-block mb-2 text-gray-700">
+          CPF</label>
+          <input type="text"
+             class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+             id="cpf"
+             placeholder="CPF"
+           />
       </div>
-    </form>
 
-    
-    
+      <div class="col-span-1">
+        <label for="dataDeNascimento" class="form-label inline-block mb-2 text-gray-700">
+          Data de Nascimento</label>
+          <input type="date"
+             max="2004-09-13"
+             min="1910-05-01"
+             class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+             id="dataDeNascimento"
+             placeholder="Data de Nascimento"
+           />
+      </div>
+
+      <div class="col-span-1">
+        <label for="profissao" class="form-label inline-block mb-2 text-gray-700">
+          Profissão</label>
+          <input type="text"
+             class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+             id="profissao"
+             placeholder="Profissão"
+           />
+      </div>
+
+      <div class="col-span-1">
+        <label for="documentoIdentificacao" class="form-label inline-block mb-2 text-gray-700">
+          Documento de identificação</label>
+          <input type="text"
+             class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+             id="documentoIdentificacao"
+             placeholder="Doc. de Identificação"
+           />
+      </div>
+
+      <div class="col-span-1">
+        <label for="numeroDocumento" class="form-label inline-block mb-2 text-gray-700">
+          Nº</label>
+          <input type="text"
+             class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+             id="numeroDocumento"
+             placeholder="Número do Documento"
+           />
+      </div>
+
+      <div class="col-span-1">
+        <label for="orgaoExpeditor" class="form-label inline-block mb-2 text-gray-700">
+          Orgão Expeditor</label>
+          <input type="text"
+             class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+             id="orgaoExpeditor"
+             placeholder="Orgão Expeditor"
+           />
+      </div>
+
+      <div class="col-span-1">
+        <label for="enderecoPessoal" class="form-label inline-block mb-2 text-gray-700">
+          Endereço</label>
+          <input type="text"
+             class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+             id="enderecoPessoal"
+             placeholder="Endereço Pessoal"
+           />
+      </div>
+
+      <div class="col-span-1">
+        <label for="numeroEnderecoPessoal" class="form-label inline-block mb-2 text-gray-700">
+          Nº Endereço</label>
+          <input type="text"
+             class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+             id="numeroEnderecoPessoal"
+             placeholder="Número Endereço"
+           />
+      </div>
+
+      <div class="col-span-1">
+        <label for="complementoEndereco" class="form-label inline-block mb-2 text-gray-700">
+          Complemento</label>
+          <input type="text"
+             class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+             id="complementoEndereco"
+             placeholder="Complemento Endereço"
+           />
+      </div>
+
+      <div class="col-span-1">
+        <label for="bairroPessoal" class="form-label inline-block mb-2 text-gray-700">
+          Bairro</b></b></label>
+          <input type="text"
+             class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+             id="bairroPessoal"
+             placeholder="Bairro"
+           />
+      </div>
+
+      <div class="col-span-1">
+        <label for="cep" class="form-label inline-block mb-2 text-gray-700">
+          CEP</label>
+          <input type="text"
+             class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+             id="cep"
+             placeholder="CEP"
+           />
+      </div>
+
+      <div class="col-span-1">
+        <label for="cidadeEstadoPessoal" class="form-label inline-block mb-2 text-gray-700">
+          Cidade/Estado</label>
+          <input type="text"
+             class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+             id="cidadeEstadoPessoal"
+             placeholder="Cidade/Estado"
+           />
+      </div>
+
+      <div class="col-span-1">
+        <label for="emailPessoal" class="form-label inline-block mb-2 text-gray-700">
+          Email</label>
+          <input type="text"
+             class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+             id="emailPessoal"
+             placeholder="E-mail"
+           />
+      </div>
+
+      <div class="col-span-1">
+        <label for="telefoneFixoPessoal" class="form-label inline-block mb-2 text-gray-700">
+          Telefone</label>
+          <input type="text"
+             class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+             id="telefoneFixoPessoal"
+             placeholder="Telefone"
+           />
+      </div>
+
+      <div class="col-span-1">
+        <label for="celularPessoal" class="form-label inline-block mb-2 text-gray-700">
+          Celular</label>
+          <input type="text"
+             class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+             id="celularPessoal"
+             placeholder="Celular"
+           />
+      </div>
+
+      <br>
+
+      <div class="m-10 col-span-3 ">
+        <h1 class="text-xl text-center font-bold">Dados Profissionais</h1>
+      </div>
+
+      <div class="col-span-3">
+        <label for="razaoSocial" class="form-label inline-block mb-2 text-gray-700">
+          Razão Social</label>
+          <input type="text"
+             class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+             id="razaoSocial"
+             placeholder="Razão Social"
+           />
+      </div>
+
+      <div class="col-span-3">
+        <label for="nomeFantasia" class="form-label inline-block mb-2 text-gray-700">
+          Nome Fantasia</label>
+          <input type="text"
+             class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+             id="nomeFantasia"
+             placeholder="Nome Fantasia"
+           />
+      </div>
+
+      <div class="col-span-2">
+        <label for="cnpj" class="form-label inline-block mb-2 text-gray-700">
+          CNPJ</label>
+          <input type="text"
+             class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+             id="cnpj"
+             placeholder="CNPJ"
+           />
+      </div>
+
+      <div class="col-span-1">
+        <label for="numeroInscricao" class="form-label inline-block mb-2 text-gray-700">
+          Nº da Inscrição</label>
+          <input type="text"
+             class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+             id="numeroInscricao"
+             placeholder="Nº da Inscrição"
+           />
+      </div>
+
+      <div class="col-span-3">
+        <label for="enderecoSede" class="form-label inline-block mb-2 text-gray-700">
+          Endereço da Sede</label>
+          <input type="text"
+             class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+             id="enderecoSede"
+             placeholder="Endereço da Sede"
+           />
+      </div>
+        
+      <div class="col-span-1">
+        <label for="numeroSede" class="form-label inline-block mb-2 text-gray-700">
+          Nº Sede</label>
+          <input type="text"
+             class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+             id="numeroSede"
+             placeholder="Nº Sede"
+           />
+      </div>
+
+      <div class="col-span-2">
+        <label for="complementoSede" class="form-label inline-block mb-2 text-gray-700">
+          Complemento</label>
+          <input type="text"
+             class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+             id="complementoSede"
+             placeholder="Complemento"
+           />
+      </div>
+
+      <div class="col-span-2">
+        <label for="bairroSede" class="form-label inline-block mb-2 text-gray-700">
+          Bairro</label>
+          <input type="text"
+             class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+             id="bairroSede"
+             placeholder="Bairro"
+           />
+      </div>
+
+      <div class="col-span-1">
+        <label for="cepSede" class="form-label inline-block mb-2 text-gray-700">
+          CEP</label>
+          <input type="text"
+             class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+             id="cepSede"
+             placeholder="CEP"
+           />
+      </div>
+
+      <div class="col-span-1">
+        <label for="cidadeEstadoSede" class="form-label inline-block mb-2 text-gray-700">
+          Cidade/Estado</label>
+          <input type="text"
+             class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+             id="cidadeEstadoSede"
+             placeholder="Cidade/Estado"
+           >
+      </div>
+
+      <div class="col-span-2">
+        <label for="emailProfissional" class="form-label inline-block mb-2 text-gray-700">
+          E-mail Profissional</label>
+          <input type="text"
+             class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+             id="emailProfissional"
+             placeholder="E-mail Profissional"
+           />
+      </div>
+      <div class="col-span-1">
+
+        <label for="dataDeAbertura" class="form-label inline-block mb-2 text-gray-700">
+          Data de Abertura</label>
+          <input type="date"
+             max="2050-06-01"
+             min="1888-06-01"
+             class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+             id="dataDeAbertura"
+             placeholder="Data de Abertura"
+           />
+      </div>
+
+      <div class="col-span-2">
+        <label for="quantidadePessoasOcupadas" class="form-label inline-block mb-2 text-gray-700">
+          Pessoas</label>
+          <input type="text"
+             class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+             id="quantidadePessoasOcupadas"
+             placeholder="Quantidade de Pessoas"
+           />
+      </div>
+
+           <div class="col-span-3">
+            <label for="ramoDeAtividade" class="form-label inline-block mb-2 text-gray-700">
+              <div class="">
+                <label for="ramoDeAtividade class="form-label inline-block mb-2 text-gray-700">Ramo de Atividade</label>
+                  <select id="ramoDeAtividade" name="ramoDeAtividade size="1" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
+                    <option value="contabilidade">Contabilidade</option>
+                    <option value="gastronomia">Gastronomia</option>
+                    <option value="ambiental">Ambiental</option>
+                    <option value="administracao">Administrativa</option>
+                    <option value="textil">Têxtil</option>
+                    <option value="lanchonete ">lanchonetes</option>
+                  </select>
+              </div>
+          </div>
+      </div>
+      </div>
+  </form>
+</div>
 </body>
 </html>
